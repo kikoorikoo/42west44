@@ -234,3 +234,20 @@ echo '<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 }
 
 add_action ('wp_head', 'insert_favicon_links');
+
+
+
+function insert_ga_tracking(){
+echo "<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxx-7', 'auto');
+  ga('send', 'pageview');
+
+</script>";
+}
+
+add_action ('wp_head', 'insert_ga_tracking');
